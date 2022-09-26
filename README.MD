@@ -1,25 +1,27 @@
-# Projeto de criação de blog
+# Next.js + Tailwind CSS Example
 
-## Tecnologias
+This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
 
-- React
-- Typescript
-- Vite
+## Deploy your own
 
-## Motivação
+Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
-- Treinar arquitetura / desenvolvimento de software
-- Relembrar conceitos de front-end / React
-- Treinar Typescript
-- Criação de um blog próprio para postar artigos / coisas da minha cabeça
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
 
-## Objetivos
+## How to use
 
-- Contruir o blog
-- Não deixar o blog sem atualização de pelo menos 1 semana com alguma adição / funcionalidade
-- Criar artigos, mesmo que sem direcionamento, com propósito de fixar conhecimentos na minha mente humana.
-- Fazer refactoring / dar manutenção no back-end
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
 
-## Links
+```bash
+npx create-next-app --example with-tailwindcss with-tailwindcss-app
+```
 
-- back-end (https://github.com/FelipeJhordan/blog-backend)
+```bash
+yarn create next-app --example with-tailwindcss with-tailwindcss-app
+```
+
+```bash
+pnpm create next-app --example with-tailwindcss with-tailwindcss-app
+```
+
+Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
