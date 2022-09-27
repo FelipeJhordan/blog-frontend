@@ -1,10 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Categories from "../components/Categories";
-import PostCard from "../components/PostCard";
-import PostWidget from "../components/PostWidget";
-
-import { Post } from "../protocols";
+import { PostWidget, PostCard, Categories } from "../components/";
+import { Post } from "../protocols/models";
 
 const post: Post[] = [
   {
