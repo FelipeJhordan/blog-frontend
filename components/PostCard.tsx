@@ -1,11 +1,11 @@
 import React from "react";
-import { Post } from "../protocols";
+import { Post } from "../protocols/models";
 
 export type PostCardProps = {
   post: Post;
 };
 
-const PostCard = ({ post }: PostCardProps) => {
+export const PostCard = ({ post }: PostCardProps) => {
   return (
     <div>
       {post.title}
@@ -13,5 +13,3 @@ const PostCard = ({ post }: PostCardProps) => {
     </div>
   );
 };
-
-export default PostCard;

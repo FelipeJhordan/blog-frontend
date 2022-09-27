@@ -1,3 +1,5 @@
 export * from './Categories'
 export * from './PostCard'
 export * from './PostWidget'
+export * from './Header'
+export * from './Layout'
