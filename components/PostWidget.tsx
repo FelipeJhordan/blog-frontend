@@ -10,18 +10,19 @@ import { RelatedPosts } from "../protocols/models/RelatedPosts";
 import Link from "next/link";
 
 export type PostWidgetProps = Props & {
-  categories?: [];
+  categories?: string[];
   slug?: string;
 };
 
-export const PostWidget = ({ categories, slug = "" }: PostWidgetProps) => {
+export const PostWidget = ({ categories = [], slug = "" }: PostWidgetProps) => {
   const [relatedPosts, setRelatedPosts] = useState<RelatedPosts[]>([]);
   console.log(slug);
   useEffect(() => {
     const setPageWidgetBySlug = async (slug: string) => {
       if (slug) {
         console.log("entrei aqui");
-        const response = await getSimilarPosts([], slug);
+        console.log(categories);
+        const response = await getSimilarPosts(categories, slug);
 
         setRelatedPosts(response);
       } else {
