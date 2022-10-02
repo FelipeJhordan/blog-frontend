@@ -3,6 +3,7 @@ import Head from "next/head";
 import { PostWidget, PostCard, Categories } from "../components/";
 import { Post } from "../protocols/models";
 import { Props } from "../protocols/react/Props";
+import { FeaturedPosts } from "../sections/FeaturedPosts";
 import { getPosts } from "../services/graphl/graphlService";
 import { NodePost } from "../services/graphl/protocols/nodePost";
 
@@ -17,6 +18,7 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
         <title>Felipe Blog</title>
         <link rel="icon" href="/favicon.icop" />
       </Head>
+      <FeaturedPosts />
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
           {posts.map((post) => (

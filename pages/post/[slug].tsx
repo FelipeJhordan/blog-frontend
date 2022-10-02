@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   Author,
   Categories,
@@ -5,6 +6,7 @@ import {
   CommentsForm,
   PostWidget,
   PostDetail,
+  Loader,
 } from "../../components";
 import { PostDetails } from "../../protocols/models/PostDetails";
 import { GetStaticPropsParams } from "../../protocols/next/static-protocols";
@@ -17,7 +19,11 @@ export type PostDetailsProps = Props & {
 };
 
 const PostDetails = ({ post }: PostDetailsProps) => {
-  console.log(post);
+  const router = useRouter();
+  if (router.isFallback) {
+    return <Loader />;
+  }
+
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -60,6 +66,6 @@ export async function getStaticPaths() {
   console.log(posts);
   return {
     paths: posts.map(({ node: { slug } }: NodePost) => ({ params: { slug } })),
-    fallback: false,
+    fallback: true,
   };
 }
