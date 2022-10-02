@@ -81,7 +81,7 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
           name="name"
           id="name-input"
           type="text"
-          placeholder="Name"
+          placeholder="Nome"
           className="py-2 px-4 outline-none w-full rounded-lg focus:ring-2 focus:ring-gray-200 bg-gray-100 text-gray-700"
         />
         <input
