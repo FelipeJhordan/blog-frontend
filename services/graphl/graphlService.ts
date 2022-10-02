@@ -1,5 +1,5 @@
 import request, { gql } from "graphql-request"
-import { FeaturedImage } from "../../protocols/models"
+import { Comment } from "../../protocols/models/Comment"
 import { RelatedPosts } from "../../protocols/models/RelatedPosts"
 
 const graphqlApi = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT ?? ''
@@ -130,4 +130,103 @@ export const getPostDetails = async (slug: string) => {
   const result = await request(graphqlApi, query, { slug });
 
   return result.post;
+};
+
+export const submitComment = async(comment: Comment) => {
+  const result = await fetch('/api/comments', {
+    method: 'POST',
+    body: JSON.stringify(comment)
+  })
+
+  return result.json()
+}
+
+export const getComments = async ( slug: string ): Promise<Comment[]> => {
+  console.log(slug)
+  const query = gql`
+    query GetComments($slug: String!) {
+      comments(where: {
+        post: {
+          slug: $slug
+        }
+      }) {
+        name
+        createdAt
+        comment
+      }
+    }
+  `
+
+
+  const result = await request(graphqlApi, query, {
+    slug
+  })
+
+  console.log("result")
+  console.log(result)
+  return result.comments
+}
+
+
+export const getFeaturedPosts = async () => {
+  const query = gql`
+    query GetCategoryPost() {
+      posts(where: {featuredPost: true}) {
+        author {
+          name
+          photo {
+            url
+          }
+        }
+        featuredImage {
+          url
+        }
+        title
+        slug
+        createdAt
+      }
+    }   
+  `;
+
+  const result = await request(graphqlApi, query);
+
+  return result.posts;
+};
+
+
+export const getCategoryPost = async (slug: string) => {
+  const query = gql`
+    query GetCategoryPost($slug: String!) {
+      postsConnection(where: {categories_some: {slug: $slug}}) {
+        edges {
+          cursor
+          node {
+            author {
+              bio
+              name
+              id
+              photo {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            excerpt
+            featuredImage {
+              url
+            }
+            categories {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphqlApi, query, { slug });
+
+  return result.postsConnection.edges;
 };
