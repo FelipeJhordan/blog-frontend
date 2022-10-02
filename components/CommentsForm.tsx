@@ -31,7 +31,7 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
     const { value: email } = emailEl.current as any;
     const { checked: storeData } = storeDataEl.current as any;
 
-    const isAllInputsAreNotFilleds = !comment || !name || !email || !storeData;
+    const isAllInputsAreNotFilleds = !comment || !name || !email;
 
     if (isAllInputsAreNotFilleds) {
       setError(true);
