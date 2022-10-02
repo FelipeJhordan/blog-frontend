@@ -1,19 +1,19 @@
 import Link from "next/link";
-
-export type Category = {
-  name: string;
-  slug: string;
-};
-
-const categories: Category[] = [
-  { name: "React", slug: "react" },
-  {
-    name: "Web Development",
-    slug: "web-dev",
-  },
-];
+import { useEffect, useState } from "react";
+import { Category } from "../protocols/models/Category";
+import { getCategories } from "../services/graphl/graphlService";
 
 export const Header = () => {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    const getCategoriesByService = async () => {
+      const categories = await getCategories();
+      setCategories(categories);
+    };
+
+    getCategoriesByService();
+  }, []);
   return (
     <div className="container mx-auto px-10 mb-8">
       <div className="border-b w-full inline-block border-blue-400 py-8">
