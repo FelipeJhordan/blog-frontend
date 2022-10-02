@@ -16,17 +16,13 @@ export type PostWidgetProps = Props & {
 
 export const PostWidget = ({ categories = [], slug = "" }: PostWidgetProps) => {
   const [relatedPosts, setRelatedPosts] = useState<RelatedPosts[]>([]);
-  console.log(slug);
   useEffect(() => {
     const setPageWidgetBySlug = async (slug: string) => {
       if (slug) {
-        console.log("entrei aqui");
-        console.log(categories);
         const response = await getSimilarPosts(categories, slug);
 
         setRelatedPosts(response);
       } else {
-        console.log("recent");
         const response = await getRecentPosts();
 
         setRelatedPosts(response);

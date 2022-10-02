@@ -37,7 +37,6 @@ export const getPosts = async () => {
     `
 
     const result = await request(graphqlApi, query)
-    console.log(result)
     return result.postsConnection.edges
 } 
 
@@ -55,7 +54,6 @@ export const getRecentPosts = async (): Promise<RelatedPosts[]> => {
   }
   `;
   const result = await request(graphqlApi, query);
-  console.log(result)
 
   return result.posts;
 };
@@ -97,7 +95,6 @@ export const getCategories = async () => {
 }
 
 export const getPostDetails = async (slug: string) => {
-  console.log("slug")
 
   const query = gql`
     query GetPostDetails($slug : String!) {
@@ -142,7 +139,6 @@ export const submitComment = async(comment: Comment) => {
 }
 
 export const getComments = async ( slug: string ): Promise<Comment[]> => {
-  console.log(slug)
   const query = gql`
     query GetComments($slug: String!) {
       comments(where: {
@@ -162,8 +158,6 @@ export const getComments = async ( slug: string ): Promise<Comment[]> => {
     slug
   })
 
-  console.log("result")
-  console.log(result)
   return result.comments
 }
 

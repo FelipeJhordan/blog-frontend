@@ -16,7 +16,6 @@ export const Comments = ({ slug }: CommentsProps) => {
   useEffect(() => {
     const getCommentsByApi = async (slug: string) => {
       const comments = await getComments(slug);
-      console.log(comments);
       setComments(comments);
     };
 
