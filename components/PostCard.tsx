@@ -1,8 +1,8 @@
 import React from "react";
 import { Post } from "../protocols/models";
 import moment from "moment";
-import Link from "next/link";
 import { Props } from "../protocols/react/Props";
+import Link from "next/link";
 
 export type PostCardProps = Props & {
   post: Post;
@@ -11,7 +11,6 @@ export type PostCardProps = Props & {
 const randomImagesUrl = "https://picsum.photos/700/700?blur";
 
 export const PostCard = ({ post }: PostCardProps) => {
-  console.log(post);
   return (
     <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
