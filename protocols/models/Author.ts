@@ -1,6 +1,7 @@
 import { Photo } from "./Photo";
 
 export type Author = {
-    name: string;
+    name: string
     photo: Photo
+    bio: string
 }
