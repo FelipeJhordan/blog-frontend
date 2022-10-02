@@ -36,7 +36,6 @@ const Home: NextPage<HomeProps> = ({ posts }) => {
 
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
-  console.log(posts);
   const serializedPosts = serializePosts(posts);
   return {
     props: { posts: serializedPosts },
